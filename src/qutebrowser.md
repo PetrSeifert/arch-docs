@@ -98,6 +98,19 @@ Usage: type the keyword followed by your query in the address bar, e.g. `aw pacm
 | `:q` | Quit |
 | `ZQ` | Quit without saving |
 
+## VMware fix
+
+Qutebrowser fails to launch on VMware because QtWebEngine's GPU process tries to attach a DRM/KMS hardware buffer to a Wayland surface, which VMware's virtual GPU doesn't support. Hyprland rejects the buffer with a fatal Wayland protocol error.
+
+**Fix:** force Mesa software rendering via the local `.desktop` override:
+
+**`~/.local/share/applications/org.qutebrowser.qutebrowser.desktop`**
+```
+Exec=env LIBGL_ALWAYS_SOFTWARE=1 qutebrowser
+```
+
+`LIBGL_ALWAYS_SOFTWARE=1` makes Mesa use llvmpipe (software rasterizer) instead of trying to allocate DRM buffers. This is the same class of fix as `LIBGL_ALWAYS_SOFTWARE=1 kitty` for terminal rendering artifacts.
+
 ## Quick config reference
 
 Open the config file directly from within qutebrowser:

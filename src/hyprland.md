@@ -30,7 +30,7 @@ See [VMware Gotchas](vmware.md) for explanations.
 
 ## Waybar
 
-Left: workspaces · active window title
+Left: workspaces · active window title · Spotify now playing
 Center: clock (day, date, time)
 Right: audio · network · CPU% · RAM% · battery · tray · theme button
 
@@ -41,6 +41,12 @@ Waybar CSS is a symlink managed by `theme-switch`:
 ```
 
 Hot-reloaded via `SIGUSR2` on theme switch.
+
+### Spotify module
+
+Polls `https://api.peterrock.dev/api/spotify/playing-status` every 5 seconds and displays the currently playing track in the left bar. Shows nothing when paused or nothing is playing.
+
+Script: `~/.config/waybar/scripts/spotify.sh`
 
 ## Mako (notifications)
 

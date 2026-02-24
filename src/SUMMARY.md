@@ -18,6 +18,7 @@
 - [Editor — Neovim](neovim.md)
 - [Dev Tools](dev-tools.md)
 - [CLI Tools](cli-tools.md)
+- [Browser — Qutebrowser](qutebrowser.md)
 - [Themes](themes.md)
 
 # Reference
